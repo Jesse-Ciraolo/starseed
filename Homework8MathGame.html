@@ -1,0 +1,68 @@
+<html>
+    <title>for Loops</title>
+    <head>
+    <script>
+        var number1 = Math.floor(Math.random() * 10);
+        var number2 = Math.floor(Math.random() * 10);
+        var i = 0;
+        var countTotal = 0;
+        var countCorrect = 0;
+
+        function printQuestion()
+        {
+            actualAnswer = number1 + number2;
+            document.getElementById("theQuestion").innerHTML = "What is " + number1 + "+" + number2 + "?";
+        }
+
+        function runGame()
+        {
+            for(var i = 0; i > 10; i++);
+            number1 = Math.floor(Math.random() * 10);
+            number2 = Math.floor(Math.random() * 10);
+            printQuestion();
+        }
+
+        function checkAnswer()
+        {
+            var answer = document.getElementById("txtAnswer").value;
+            if(answer == actualAnswer)
+            {
+                document.getElementById("finalResult").innerHTML = "Good job!";
+                countTotal += 1;
+                countCorrect += 1;
+                runGame();
+            }
+            else
+            {
+                document.getElementById("finalResult").innerHTML = "Try Again!";
+                countTotal += 1;
+            }
+            if (countTotal < 10)
+            {
+            runGame();
+            }
+            else
+            {
+            document.getElementById("game").style.display = "none";
+            document.getElementById("finalResult").innerHTML = " Correct: " + countCorrect + " Incorrect: " + (countTotal - countCorrect);
+            }
+        }
+
+    </script>
+    </head>
+
+    <body onload= runGame();>
+        <div id="theQuestion"></div>
+        <div id="game"></div>
+            <table>
+                <tr>
+                    <td>Your answer</td>
+                    <td><input type="text" id="txtAnswer"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
+                </tr>
+            </table>
+        <h1><div id="finalResult"></div></h1>
+    </body>
+ </html>

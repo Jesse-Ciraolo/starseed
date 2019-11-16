@@ -1,0 +1,61 @@
+<html>
+    <title>Contact Us</title>
+    <head>
+        <script>
+            function getData()
+            {
+                var name = document.getElementById("txtName").value;
+                var email = document.getElementById("txtEmail").value;
+                var agree = document.getElementById("agree").checked;
+                if (name == "")
+                {
+                    document.getElementById("finalResult").innerHTML = "*Name, Email, and Terms of Service required";
+                    document.getElementById("txtName").style.backgroundColor="red";
+                }
+                else if (email == "")
+                {
+                    document.getElementById("finalResult").innerHTML = "*Name, Email, and Terms of Service required";
+                    document.getElementById("txtEmail").style.backgroundColor="red";
+                }
+                else if (agree == false)
+                {
+                    document.getElementById("finalResult").innerHTML = "*Name, Email, and Terms of Service required";
+                }
+                else
+                {
+                    document.getElementById("finalResult").innerHTML = "name: " + name + " email: " + email;
+                    document.getElementById("txtName").style.backgroundColor="white";
+                    document.getElementById("txtEmail").style.backgroundColor="white";
+                }
+            }
+        </script>
+        <style>
+            span{
+                background-color:red;
+                                        
+                }
+        </style>
+    </head>
+    <body>
+        <h1><span>Contact Us</span></h1>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" id="txtName"></td>
+            </tr>
+            <tr>
+                <td>Email Address</td>
+                <td><input type="text" id="txtEmail"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
+            </tr>
+        </table>
+        <div id="finalResult"></div>
+        <h3><span>Terms of Service</span></h3>
+		<input type="radio" name="agree" value="agree" id="agree">Agree<br>
+		<p></p>
+		<a href="firstpageHomework8.html">First Page</a>
+		<a href="secondpageHomework8.html">Previous Page</a>
+    </body>
+ </html>
